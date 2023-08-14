@@ -74,11 +74,11 @@ with tab2:
         st.markdown(conversation[-1]['content'].strip())
         input = st.text_input('enter next line here', '')
         if st.button('Rock it!'):
-            prompt = input
-            conversation.append({'role': 'user', 'content': prompt})
-            conversation = ChatGPT_conversation(conversation)
             st.write('\n')  # add spacing
             with st.expander("GPT judge", expanded=True):
+                prompt = input
+                conversation.append({'role': 'user', 'content': prompt})
+                conversation = ChatGPT_conversation(conversation)
                 st.markdown(conversation[-1]['content'].strip())  #output the results
                 if st.button('Another one!'):
                     st.experimental_rerun()
