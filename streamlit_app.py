@@ -72,12 +72,9 @@ with tab2:
         st.subheader('\nWhat is the Next Line?\n')
         conversation2 = ChatGPT_conversation(conversation2)
         st.markdown(conversation2[-1]['content'].strip())
-        input = st.text_input('answer', '')
-        if st.button('Rock it!'):
-            st.write('\n')  # add spacing
-            with st.expander("GPT judge", expanded=True):
-                prompt = input
-                conversation2.append({'role': 'user', 'content': prompt})
+        conversation2.append({'role': 'user', 'content': 'What is the line immediately following your line and tell me the artist, song title and year of release'})
+        st.write('\n')  # add spacing
+            with st.expander("Show Answer", expanded=false):
                 conversation2 = ChatGPT_conversation(conversation2)
                 st.markdown(conversation2[-1]['content'].strip())  #output the results
                 if st.button('Another one!'):
@@ -87,6 +84,6 @@ with tab2:
     if __name__ == '__main__':
         # call main function
         conversation2 = []
-        conversation2.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a line of lyrics from a song after this prompt and the user will guess the next line. If the answer is correct or close enough, reply "Yeah! You got it!" If incorrect, provide the right answer along with the song title, artist and year of release'})
+        conversation2.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a random line of lyric from a song'})
         quiznow(conversation2)
 
