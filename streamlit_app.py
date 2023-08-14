@@ -78,13 +78,13 @@ with tab2:
             conversation.append({'role': 'user', 'content': prompt})
             conversation = ChatGPT_conversation(conversation)
             st.write('\n')  # add spacing
-            with st.expander("GPT sings", expanded=True):
+            with st.expander("GPT judge", expanded=True):
                 st.markdown(conversation[-1]['content'].strip())  #output the results
                 if st.button('Another one!'):
                     st.experimental_rerun()
             #print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 
-    if st.button('Are you ready? Press to begin!'):
+    if __name__ == '__main__':
         # call main function
         conversation = []
         conversation.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a line of lyrics from a song after this prompt and the user will guess the next line. If the answer is correct or close enough, reply "Yeah! You got it!" If incorrect, provide the right answer along with the song title, artist and year of release'})
