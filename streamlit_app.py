@@ -72,8 +72,10 @@ with tab2:
         st.subheader('\nWhat is the Next Line?\n')
         conversation2 = ChatGPT_conversation(conversation2)
         st.markdown(conversation2[-1]['content'].strip())
-        input = st.text_input('enter next line here', '')
-        if st.button('Rock it!'):
+        input = st.text_input('answer', '')
+        rock = st.checkbox('Rock it!')
+        if rock:
+        #if st.button('Rock it!'):
             st.write('\n')  # add spacing
             with st.expander("GPT judge", expanded=True):
                 prompt = input
