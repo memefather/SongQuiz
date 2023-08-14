@@ -73,8 +73,7 @@ with tab2:
         conversation2 = ChatGPT_conversation(conversation2)
         st.markdown(conversation2[-1]['content'].strip())
         input = st.text_input('answer', '')
-        if input != '':
-        #if st.button('Rock it!'):
+        if st.button('Rock it!'):
             st.write('\n')  # add spacing
             with st.expander("GPT judge", expanded=True):
                 prompt = input
