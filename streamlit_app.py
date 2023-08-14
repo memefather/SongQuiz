@@ -28,7 +28,9 @@ print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['co
 """
 
 def singnow():
-    input = st.text_input('', 'Near, far, wheverever you are')
+    input = st.text_input('', 'Near, far, wherever you are')
+    conversation = []
+    conversation.append({'role': 'system', 'content': 'You are playing a game with the user. The user will give you a line of lyric from a song. You will return the next line.'})
     if st.button('Sing!'):
         prompt = input
         conversation.append({'role': 'user', 'content': prompt})
@@ -37,5 +39,4 @@ def singnow():
 
 if __name__ == '__main__':
     # call main function
-    conversation = []
     singnow()
