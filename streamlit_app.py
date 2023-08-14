@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import openai
 
-st.title("Welcome to SongQuiz! 🚀")
+st.title("Welcome to SongQuiz! 🎵")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 model_id = 'gpt-3.5-turbo'
@@ -21,7 +21,7 @@ def ChatGPT_conversation(conversation):
     return conversation
 
 """
-Test your knowledge.
+🎼Sing with GPT! Enter that line of lyric stuck in your head all day and jam with GPT.🎤
 """
 
 def singnow(conversation):
