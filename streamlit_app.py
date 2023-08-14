@@ -34,8 +34,8 @@ def singnow():
     if st.button('Sing!'):
         prompt = input
         conversation.append({'role': 'user', 'content': prompt})
-        conversation = ChatGPT_conversation(conversation)
-        print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
+        conversations = ChatGPT_conversation(conversation)
+        print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
 
 if __name__ == '__main__':
     # call main function
