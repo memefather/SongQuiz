@@ -87,6 +87,6 @@ with tab2:
     if st.button('Are you ready? Press to begin!'):
         # call main function
         conversation = []
-        conversation.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a line of lyrics from a song after this prompt and the user will provide the next line. If the answer is correct or close enough, reply "Yeah! You got it!" If incorrect, provide the right answer along with the song title, artist and year of release'})
+        conversation.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a line of lyrics from a song after this prompt and the user will guess the next line. If the answer is correct or close enough, reply "Yeah! You got it!" If incorrect, provide the right answer along with the song title, artist and year of release'})
         quiznow(conversation)
 
