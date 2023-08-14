@@ -74,12 +74,12 @@ with tab2:
         st.markdown(conversation2[-1]['content'].strip())
         conversation2.append({'role': 'user', 'content': 'What is the line immediately following your line and tell me the artist, song title and year of release'})
         st.write('\n')  # add spacing
-            with st.expander("Show Answer", expanded=false):
-                conversation2 = ChatGPT_conversation(conversation2)
-                st.markdown(conversation2[-1]['content'].strip())  #output the results
-                if st.button('Another one!'):
-                    st.experimental_rerun()
-            #print('{0}: {1}\n'.format(conversation2[-1]['role'].strip(), conversation2[-1]['content'].strip()))
+        with st.expander("Show Answer", expanded=false):
+            conversation2 = ChatGPT_conversation(conversation2)
+            st.markdown(conversation2[-1]['content'].strip())  #output the results
+            if st.button('Another one!'):
+                st.experimental_rerun()
+        #print('{0}: {1}\n'.format(conversation2[-1]['role'].strip(), conversation2[-1]['content'].strip()))
 
     if __name__ == '__main__':
         # call main function
