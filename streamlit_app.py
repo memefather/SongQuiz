@@ -33,7 +33,8 @@ def singnow(conversation):
         prompt = input
         conversation.append({'role': 'user', 'content': prompt})
         conversation = ChatGPT_conversation(conversation)
-        print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
+        print(conversation)
+        #print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 
 if __name__ == '__main__':
     # call main function
