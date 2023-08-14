@@ -27,12 +27,11 @@ print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['co
 
 def singnow():
     input = st.text_input('', 'Near, far, wheverever you are')
-
-while input != '':
-    prompt = input
-    conversation.append({'role': 'user', 'content': prompt})
-    conversation = ChatGPT_conversation(conversation)
-    print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
+    if st.button('Generate Email'):
+        prompt = input
+        conversation.append({'role': 'user', 'content': prompt})
+        conversation = ChatGPT_conversation(conversation)
+        print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 
 if __name__ == '__main__':
     # call main function
