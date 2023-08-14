@@ -27,16 +27,16 @@ conversation = ChatGPT_conversation(conversation)
 print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 """
 
-def singnow():
+def singnow(conversation):
     input = st.text_input('', 'Near, far, wherever you are')
-    conversation = []
-    conversation.append({'role': 'system', 'content': 'You are playing a game with the user. The user will give you a line of lyric from a song. You will return the next line.'})
     if st.button('Sing!'):
         prompt = input
         conversation.append({'role': 'user', 'content': prompt})
-        conversations = ChatGPT_conversation(conversation)
-        print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
+        conversation = ChatGPT_conversation(conversation)
+        print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 
 if __name__ == '__main__':
     # call main function
-    singnow()
+    conversation = []
+    conversation.append({'role': 'system', 'content': 'You are playing a game with the user. The user will give you a line of lyric from a song. You will return the next line.'})
+    singnow(conversation)
