@@ -21,10 +21,7 @@ def ChatGPT_conversation(conversation):
     return conversation
 
 """
-conversation = []
-conversation.append({'role': 'system', 'content': 'You are playing a game with the user. The user will give you a line of lyric from a song. You will return the next line.'})
-conversation = ChatGPT_conversation(conversation)
-print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
+Test your knowledge.
 """
 
 def singnow(conversation):
@@ -36,7 +33,7 @@ def singnow(conversation):
         st.write('\n')  # add spacing
         st.subheader('\nNext Line is\n')
         with st.expander("GPT sings", expanded=True):
-            st.markdown('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))  #output the results
+            st.markdown('conversation[-1]['content'].strip()))  #output the results
         #print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 
 if __name__ == '__main__':
