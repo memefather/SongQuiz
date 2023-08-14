@@ -34,6 +34,11 @@ def singnow(conversation):
         conversation.append({'role': 'user', 'content': prompt})
         conversation = ChatGPT_conversation(conversation)
         print(conversation)
+    if conversation != "":
+        st.write('\n')  # add spacing
+        st.subheader('\nGPT Sings Back\n')
+        with st.expander("SECTION - Email Output", expanded=True):
+            st.markdown(conversation)  #output the results
         #print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
 
 if __name__ == '__main__':
