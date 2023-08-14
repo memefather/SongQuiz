@@ -20,14 +20,16 @@ def ChatGPT_conversation(conversation):
     conversation.append({'role': response.choices[0].message.role, 'content': response.choices[0].message.content})
     return conversation
 
+"""
 conversation = []
 conversation.append({'role': 'system', 'content': 'You are playing a game with the user. The user will give you a line of lyric from a song. You will return the next line.'})
 conversation = ChatGPT_conversation(conversation)
 print('{0}: {1}\n'.format(conversation[-1]['role'].strip(), conversation[-1]['content'].strip()))
+"""
 
 def singnow():
     input = st.text_input('', 'Near, far, wheverever you are')
-    if st.button('Generate Email'):
+    if st.button('Sing!'):
         prompt = input
         conversation.append({'role': 'user', 'content': prompt})
         conversation = ChatGPT_conversation(conversation)
