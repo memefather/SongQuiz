@@ -84,6 +84,6 @@ with tab2:
     if __name__ == '__main__':
         # call main function
         conversation2 = []
-        conversation2.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a random line of lyric from a song'})
+        conversation2.append({'role': 'system', 'content': 'You are playing a game with the user. You will provide a random line of lyric from a song without any other information'})
         quiznow(conversation2)
 
