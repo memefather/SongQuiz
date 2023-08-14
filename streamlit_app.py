@@ -37,4 +37,5 @@ def singnow():
 
 if __name__ == '__main__':
     # call main function
+    conversation = []
     singnow()
