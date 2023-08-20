@@ -51,8 +51,8 @@ with tab2:
     st.title("Welcome to SongQuiz! 🎵")
     
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    os.getenv("GOOGLE_API")
-    os.getenv("GOOGLE_CX")
+    google_api = os.getenv("GOOGLE_API")
+    googl_cx = os.getenv("GOOGLE_CX")
     
     model_id = 'gpt-3.5-turbo'
     
@@ -86,7 +86,7 @@ with tab2:
             #display = "\"" + song_details[0] + "\"" + " - " + song_details[1] + " by " + song_details[2] + " from " + song_details[3] + ", " + song_details[4] + "."
             st.markdown(output)  #output the results
             search = output + " album cover"
-            gis = GoogleImagesSearch(GOOGLE_API, 'GOOGLE_CX')
+            gis = GoogleImagesSearch(google_api, googl_cx)
             _search_params = {
                 'q': search,
                 'num': 1,
