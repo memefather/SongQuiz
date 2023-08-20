@@ -74,15 +74,15 @@ with tab2:
         st.subheader('\nWhat is the Next Line?\n')
         conversation2 = ChatGPT_conversation(conversation2)
         st.markdown(conversation2[-1]['content'].strip())
-        conversation2.append({'role': 'user', 'content': 'What is the next line immediately following your line and tell me the artist, album name, song title and year of release in the following format: next line,song title,artist,album name,year of release'})
+        conversation2.append({'role': 'user', 'content': 'What is the next line immediately following your line and tell me the artist, album name, song title and year of release in the following format: next line, song title, artist, album name, year of release'})
         st.write('\n')  # add spacing
         with st.expander("Show Answer", expanded=False):
             conversation2 = ChatGPT_conversation(conversation2)
             output = conversation2[-1]['content'].strip()
-            song_details = output.split(",")
-            display = "\"" + song_details[0] + "\"" + " - " + song_details[1] + " by " + song_details[2] + " from " + song_details[3] + ", " + song_details[4] + "."
-            st.markdown(display)  #output the results
-            search = song_details[2] + " " + song_details[3] + " album cover"
+            #song_details = output.split(",")
+            #display = "\"" + song_details[0] + "\"" + " - " + song_details[1] + " by " + song_details[2] + " from " + song_details[3] + ", " + song_details[4] + "."
+            st.markdown(output)  #output the results
+            search = output + " album cover"
             gis = GoogleImagesSearch(GOOGLE_API, 'GOOGLE_CX')
             _search_params = {
                 'q': search,
