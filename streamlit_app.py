@@ -79,21 +79,22 @@ with tab2:
         st.markdown(conversation2[-1]['content'].strip())
         conversation2.append({'role': 'user', 'content': 'What is the next line immediately following your line and tell me the artist, album name, song title and year of release in the following format: next line, song title, artist, album name, year of release'})
         st.write('\n')  # add spacing
+        conversation2 = ChatGPT_conversation(conversation2)
+        output = conversation2[-1]['content'].strip()
+        #song_details = output.split(",")
+        #display = "\"" + song_details[0] + "\"" + " - " + song_details[1] + " by " + song_details[2] + " from " + song_details[3] + ", " + song_details[4] + "."
+        search = output + " album cover"
+        gis = GoogleImagesSearch(google_api, googl_cx)
+        _search_params = {
+            'q': search,
+            'num': 1,
+            'safe': 'active',
+        }
+        gis.search(search_params=_search_params)
+        for image in gis.results():
+            image.url
         with st.expander("Show Answer", expanded=False):
-            conversation2 = ChatGPT_conversation(conversation2)
-            output = conversation2[-1]['content'].strip()
-            #song_details = output.split(",")
-            #display = "\"" + song_details[0] + "\"" + " - " + song_details[1] + " by " + song_details[2] + " from " + song_details[3] + ", " + song_details[4] + "."
             st.markdown(output)  #output the results
-            search = output + " album cover"
-            gis = GoogleImagesSearch(google_api, googl_cx)
-            _search_params = {
-                'q': search,
-                'num': 1,
-                'safe': 'active',
-            }
-            gis.search(search_params=_search_params)
-            for image in gis.results():
             st.image(image.url)
             #html_string = "<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/48UPSzbZjgc449aqz8bxox?utm_source=generator" width="40%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>"
             #st.markdown(html_string, unsafe_allow_html=True)
