@@ -2,8 +2,7 @@ import streamlit as st
 import os
 import openai
 from PIL import Image
-
-image = 'https://m.media-amazon.com/images/I/71+q4wh2+YL._UF1000,1000_QL80_.jpg'
+from google_images_search import GoogleImagesSearch
 
 tab1, tab2 = st.tabs(["Sing", "Quiz Me!"])
 
@@ -75,12 +74,23 @@ with tab2:
         st.subheader('\nWhat is the Next Line?\n')
         conversation2 = ChatGPT_conversation(conversation2)
         st.markdown(conversation2[-1]['content'].strip())
-        conversation2.append({'role': 'user', 'content': 'What is the line immediately following your line and tell me the artist, song title and year of release'})
+        conversation2.append({'role': 'user', 'content': 'What is the line immediately following your line and tell me the artist, album name, song title and year of release in the following format: next line,song title,artist,album,year})
         st.write('\n')  # add spacing
         with st.expander("Show Answer", expanded=False):
             conversation2 = ChatGPT_conversation(conversation2)
-            st.markdown(conversation2[-1]['content'].strip())  #output the results
-            st.image(image)
+            output = conversation2[-1]['content'].strip()
+            song_details = output.split(",")
+            display = "\"" + song_details[0] + "\"" + " - " + song_details[1] + " by " + song_details[2] + " from " + song_details[3] + ", " + song_details[4] + "."
+            st.markdown(display)  #output the results
+            search = song_details[2] + " " + song_details[3] + " album cover"
+            gis = GoogleImagesSearch(GOOGLE_API, 'GOOGLE_CX')
+            _search_params = {
+                'q': search,
+                'num': 1,
+                'safe': 'active',
+                'imgSize': 'small',
+            }
+            st.image(gis.search(search_params=_search_params))
             #html_string = "<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/48UPSzbZjgc449aqz8bxox?utm_source=generator" width="40%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>"
             #st.markdown(html_string, unsafe_allow_html=True)
             if st.button('Another one!'):
