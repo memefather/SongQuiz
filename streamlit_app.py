@@ -3,7 +3,7 @@ import os
 import openai
 from PIL import Image
 
-image = Image.open('https://m.media-amazon.com/images/I/71+q4wh2+YL._UF1000,1000_QL80_.jpg')
+image = 'https://m.media-amazon.com/images/I/71+q4wh2+YL._UF1000,1000_QL80_.jpg'
 
 tab1, tab2 = st.tabs(["Sing", "Quiz Me!"])
 
