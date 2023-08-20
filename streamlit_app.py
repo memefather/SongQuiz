@@ -94,7 +94,6 @@ with tab2:
             }
             gis.search(search_params=_search_params)
             for image in gis.results():
-                image.url;
             st.image(image.url)
             #html_string = "<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/48UPSzbZjgc449aqz8bxox?utm_source=generator" width="40%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>"
             #st.markdown(html_string, unsafe_allow_html=True)
