@@ -51,6 +51,9 @@ with tab2:
     st.title("Welcome to SongQuiz! 🎵")
     
     openai.api_key = os.getenv("OPENAI_API_KEY")
+    os.getenv("GOOGLE_API")
+    os.getenv("GOOGLE_CX")
+    
     model_id = 'gpt-3.5-turbo'
     
     def ChatGPT_conversation(conversation2):
