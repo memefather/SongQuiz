@@ -91,7 +91,6 @@ with tab2:
                 'q': search,
                 'num': 1,
                 'safe': 'active',
-                'imgSize': 'small',
             }
             gis.search(search_params=_search_params)
             for image in gis.results():
