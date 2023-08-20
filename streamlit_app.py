@@ -74,7 +74,7 @@ with tab2:
         st.subheader('\nWhat is the Next Line?\n')
         conversation2 = ChatGPT_conversation(conversation2)
         st.markdown(conversation2[-1]['content'].strip())
-        conversation2.append({'role': 'user', 'content': 'What is the next line immediately following your line and tell me the artist, album name, song title and year of release in the following format: next line,song title,artist,album name,year of release"})
+        conversation2.append({'role': 'user', 'content': 'What is the next line immediately following your line and tell me the artist, album name, song title and year of release in the following format: next line,song title,artist,album name,year of release'})
         st.write('\n')  # add spacing
         with st.expander("Show Answer", expanded=False):
             conversation2 = ChatGPT_conversation(conversation2)
